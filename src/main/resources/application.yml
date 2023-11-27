@@ -1,0 +1,69 @@
+server:
+  port: 8082
+
+spring:
+  config:
+    active:
+      on-profile: prod
+---
+
+spring:
+  config:
+    active:
+      on-profile: dev
+  datasource:
+    driverClassName: org.h2.Driver
+    password: password
+    url: jdbc:h2:mem:dcbapp
+    username: sa
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+welcome:
+  message: Welcome to Spring Boot Tutorial!!!
+
+---
+
+spring:
+  config:
+    active:
+      on-profile: qa
+  datasource:
+    driverClassName: org.h2.Driver
+    password: password
+    url: jdbc:h2:mem:dcbapp-qa
+    username: sa
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+welcome:
+  message: Welcome to Spring Boot Tutorial!!!
+
+---
+
+spring:
+  config:
+    active:
+      on-profile: prod
+  datasource:
+    driverClassName: org.h2.Driver
+    password: password
+    url: jdbc:h2:mem:dcbapp-prod
+    username: sa
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+welcome:
+  message: Welcome to Spring Boot Tutorial!!!
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
